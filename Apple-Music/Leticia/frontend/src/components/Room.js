@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Grid, Button, Typography } from "@material-ui/core";
 import {Grade} from "@material-ui/icons";
-import {Link} from "react-router-dom";
 
 export default class Room extends Component{
     constructor(props) {
@@ -18,7 +17,13 @@ export default class Room extends Component{
 
     getRoomDetail(){
         fetch('/api/get-room' + '?code=' + this.roomCode).then((response) =>
-            response.json()).then((data)=>{
+        {
+            if(!response.ok){
+                this.props.leaveRoomCallback();
+                this.props.history.push("/");
+            }
+            return response.json()
+        }).then((data)=>{
                 this.setState({
                     votesToSkip : data.votes_to_skip,
                     guestCanPause: data.guest_can_pause,
@@ -28,7 +33,14 @@ export default class Room extends Component{
     }
 
     leaveButtonPressed(){
-
+        const requestOption = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"}
+        };
+        fetch('/api/leave-room', requestOption).then((_response)=> {
+            this.props.leaveRoomCallback();
+            this.props.history.push("/");
+        });
     }
 
     render() {
@@ -57,7 +69,7 @@ export default class Room extends Component{
                     </Typography>
                 </Grid>
                 <Grid item xs={12} align="center">
-                    <Button color="secondary" variant="contained" to="/" component={ Link }> Leave room </Button>
+                    <Button color="secondary" variant="contained" onClick={this.leaveButtonPressed}> Leave room </Button>
                 </Grid>
             </Grid>
 
