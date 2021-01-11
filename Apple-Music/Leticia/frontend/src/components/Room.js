@@ -12,13 +12,19 @@ export default class Room extends Component{
             isHost : false,
             showSettings: false,
         };
+
         this.roomCode = this.props.match.params.roomCode;
-        this.getRoomDetail();
         this.leaveButtonPressed = this.leaveButtonPressed.bind(this);
         this.updateShowSettings = this.updateShowSettings.bind(this);
         this.renderSettingsButton = this.renderSettingsButton.bind(this);
         this.renderSettings = this.renderSettings.bind(this);
+        this.getRoomDetail = this.getRoomDetail.bind(this);
+        this.getRoomDetail();
+
+        // console.log(this.props.match.params.roomCode)
+
     }
+
 
     getRoomDetail(){
         fetch('/api/get-room' + '?code=' + this.roomCode).then((response) =>
@@ -50,6 +56,7 @@ export default class Room extends Component{
 
 
     updateShowSettings(value){
+        // console.log(value)
         this.setState({
             showSettings: value,
         });
@@ -63,8 +70,8 @@ export default class Room extends Component{
                     update={true}
                     votesToSkip={this.state.votesToSkip}
                     guestCanPause={this.state.guestCanPause}
-                    roomCode={this.state.roomCode}
-                    updateCallback={() => {}}
+                    roomCode={this.roomCode}
+                    updateCallback={this.getRoomDetail}
                 />
             </Grid>
             <Grid item xs={12} align="center">
@@ -77,13 +84,14 @@ export default class Room extends Component{
                 </Button>
             </Grid>
         </Grid>
-            )
+        )
     }
 
     renderSettingsButton(){
         return(
             <Grid item xs={12} align="center">
-                <Button variant="contained" color="primary" onClick={()=>this.updateShowSettings(true)}>Settings</Button>
+                <Button variant="contained" color="primary" onClick={()=>this.updateShowSettings(true)}>
+                    Settings</Button>
             </Grid>
         );
     }
