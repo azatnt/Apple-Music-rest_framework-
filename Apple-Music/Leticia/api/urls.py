@@ -9,4 +9,5 @@ urlpatterns = [
     path('join-room', JoinRoom.as_view(), name='join_room_url'),
     path('user-in-room', UserInRoom.as_view(), name='user_in_room_url'),
     path('leave-room', LeaveRoom.as_view(), name='leave_room_url'),
+    path('update-room', UpdateRoom.as_view(), name='update_room_url'),
 ]
