@@ -3,11 +3,11 @@ from .views import *
 
 
 urlpatterns = [
-    path('room', RoomView.as_view(), name='all_rooms_url'),
-    path('create-room', CreateRoomView.as_view(), name='create_room_url'),
-    path('get-room', GetRoom.as_view(), name='get_room_url'),
-    path('join-room', JoinRoom.as_view(), name='join_room_url'),
-    path('user-in-room', UserInRoom.as_view(), name='user_in_room_url'),
-    path('leave-room', LeaveRoom.as_view(), name='leave_room_url'),
-    path('update-room', UpdateRoom.as_view(), name='update_room_url'),
+    path('room', RoomView.as_view()),
+    path('create-room', CreateRoomView.as_view()),
+    path('get-room', GetRoom.as_view()),
+    path('join-room', JoinRoom.as_view()),
+    path('user-in-room', UserInRoom.as_view()),
+    path('leave-room', LeaveRoom.as_view()),
+    path('update-room', UpdateRoom.as_view()),
 ]
