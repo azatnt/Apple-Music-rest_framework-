@@ -21,6 +21,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -34,11 +35,20 @@
       <workItem from="1610024492384" duration="5035000" />
       <workItem from="1610044036888" duration="21584000" />
       <workItem from="1610308619341" duration="11702000" />
-      <workItem from="1610456445985" duration="11967000" />
+      <workItem from="1610456445985" duration="12684000" />
+      <workItem from="1610555978415" duration="332000" />
+      <workItem from="1610556401700" duration="6359000" />
+      <workItem from="1610606864420" duration="9368000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="229" y="89" key="SettingsEditor" timestamp="1610559816676">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="229" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1610559816676" />
   </component>
 </project>
